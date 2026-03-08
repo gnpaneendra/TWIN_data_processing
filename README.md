@@ -1,4 +1,4 @@
-        # SOP for plotting the TWIN data
+# SOP for plotting the TWIN data
 Data processing of TWIN array at Gauribidanur Radio Observatory (RRI)<br>
 Author: G N Paneendra
 

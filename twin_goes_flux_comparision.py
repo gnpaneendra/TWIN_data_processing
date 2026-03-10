@@ -278,7 +278,7 @@ ps = df["GOES primary  Shortwave"].to_numpy()
 print("Done")
 
 start_time = input(str("\nEnter start date & time (UT) (Format = YYYY-MM-DD HH:MM:SS): "))
-end_time = input(str("\nEnter end date and time (UT): "))
+end_time = input(str("\nEnter end date and time (UT) (Format = YYYY-MM-DD HH:MM:SS): "))
 
 twin_start_idx, twin_end_idx = find_time_indices(start_time, end_time, utc_time)
 goes_start_idx, goes_end_idx = find_time_indices(start_time, end_time, goes_time)

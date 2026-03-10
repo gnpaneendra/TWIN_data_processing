@@ -16,7 +16,12 @@ from tqdm import tqdm
 
 # Fucntions
 
-# To extract time from filenames and convert them to UTC
+def extract_ist_time_from_file(filename):
+        basename = os.path.basename(filename)
+        time_str = basename.split('_')[3] + '_' + basename.split('_')[4].split('.')[0]
+        ist_time = datetime.strptime(time_str, '%Y-%m-%d_%H-%M-%S')
+        return ist_time
+
 def extract_utc_time_from_filename(filename):
 	basename = os.path.basename(filename)
 	time_str = basename.split('_')[3] + '_' + basename.split('_')[4].split('.')[0]
@@ -24,12 +29,6 @@ def extract_utc_time_from_filename(filename):
 	ist_offset = timedelta(seconds=19800)
 	utc_time = ist_time - ist_offset
 	return utc_time
-
-def extract_ist_time_from_file(filename):
-        basename = os.path.basename(filename)
-        time_str = basename.split('_')[3] + '_' + basename.split('_')[4].split('.')[0]
-        ist_time = datetime.strptime(time_str, '%Y-%m-%d_%H-%M-%S')
-        return ist_time
 
 def rfimit(bp_freq, bp_spec1, bp_spec2, bp_both, rfi_bands):
 
@@ -161,7 +160,7 @@ ist_time_1 = extract_ist_time_from_file(files_sorted_by_time[0]).strftime('%H:%M
 ist_time_n = extract_ist_time_from_file(files_sorted_by_time[-1]).strftime('%H:%M:%S')
 
 print(f"\nObservation date: {date}")
-print(f"Observation time(IST: {ist_time_1} - {ist_time_n}")
+print(f"Observation time(IST): {ist_time_1} - {ist_time_n}")
 print(f"Observation time(UT): {time_1} - {time_n}\n")
 
 fft_length = 2048
@@ -209,12 +208,12 @@ rfi_bands = [(180e6, 181.5e6), (215e6, 225e6), (238.5e6, 271e6), (278e6, 283e6),
 element1_rfim_spec, element2_rfim_spec, cross_rfim_spec= rfimit(bp_frequencies, element1_spec, element2_spec, cross_spec, rfi_bands)
 print("Done")
 
-output_directory = os.path.expanduser(f'~/workspace/analysis/data/2EI/spectrograph/')
+output_directory = os.path.expanduser(f'~/Downloads/TWIN_data_processing/spectrograph/')
 os.makedirs(output_directory, exist_ok=True)
 
 # Plotting
 print("\nSaving spectrographs...")
-plot(element1_rfim_spec, bp_frequencies, utc_time, 15, 20, name = 'Element_1')
+plot(element1_rfim_spec, bp_frequencies, utc_time, 20, 20, name = 'Element_1')
 plot(element2_rfim_spec, bp_frequencies, utc_time, 11, 16, name = 'Element_2')
 plot(cross_rfim_spec, bp_frequencies, utc_time, 11, 2, name = 'Correlated')
 print("\nDone\n")

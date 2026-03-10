@@ -87,12 +87,12 @@ git clone https://github.com/gnpaneendra/TWIN_data_processing.git
 ```terminal
 cd TWIN_data_processing
 ```
-See all the files in the directory
+To see all the files in the directory
 ```terminal
 ls -ltrh
 ```
 
-twin_full.py plot the spectrograph, bandpass and total power (in arbitrary value)<br>
+twin_fullday.py plot the spectrograph, bandpass and total power (in arbitrary value)<br>
 
 twin_goes_flux_comparision.py plot the spectrograph, bandpass and total power (in arbitrary value) along with the x-ray flux from GOES satellite for the selected time interval
 
@@ -104,7 +104,7 @@ Execute the below command in terminal to get the plots of one full observation<b
 Type python3 followed by program name and path to TWIN data
 
 ```terminal
-python3 twin_full.py /home/winterschool/Downloads/example_name
+python3 twin_fullday.py /home/winterschool/Downloads/example_name
 ```
 Execute the below command to compare the TWIN data with GOES data<br>
 

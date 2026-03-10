@@ -17,7 +17,12 @@ twin_path = str(sys.argv[1])
 #goes_path = r'data/twin/2024_02_22/' # GOES x-ray flux
 goes_path = str(sys.argv[2])
 
-# Function to extract time from the filename
+def extract_ist_time_from_file(filename):
+    basename = os.path.basename(filename)
+    time_str = basename.split('_')[3] + '_' + basename.split('_')[4].split('.')[0]
+    ist_time = datetime.strptime(time_str, '%Y-%m-%d_%H-%M-%S')
+    return ist_time
+
 def extract_utc_time_from_filename(filename):
     basename = os.path.basename(filename)
     time_str = basename.split('_')[3] + '_' + basename.split('_')[4].split('.')[0]
@@ -210,11 +215,14 @@ date = extract_utc_time_from_filename(files_sorted_by_time[0]).strftime('%Y/%m/%
 date_name = extract_utc_time_from_filename(files_sorted_by_time[0]).strftime('%Y_%m_%d')
 time_1 = extract_utc_time_from_filename(files_sorted_by_time[0]).strftime('%H:%M:%S')
 time_n = extract_utc_time_from_filename(files_sorted_by_time[-1]).strftime('%H:%M:%S')
+ist_time_1 = extract_ist_time_from_file(files_sorted_by_time[0]).strftime('%H:%M:%S')
+ist_time_n = extract_ist_time_from_file(files_sorted_by_time[-1]).strftime('%H:%M:%S')
 
 print(f"\nObservation date: {date}")
+print(f"Observation time(IST): {ist_time_1} - {ist_time_n}")
 print(f"Observation time(UTC): {time_1} - {time_n}\n")
 
-output_directory = os.path.expanduser(f'~/workspace/analysis/BSc_interns/spectrograph/{date_name}')
+output_directory = os.path.expanduser(f'~/Downloads/TWIN_data_processing/spectrograph/{date_name}')
 os.makedirs(output_directory, exist_ok=True)
 
 fft_length = 2048
@@ -261,7 +269,7 @@ rfi_bands = [(180e6, 181.5e6), (215e6, 225e6), (238.5e6, 271e6), (278e6, 283e6),
 element1_rfim_spec, element2_rfim_spec, cross_rfim_spec= rfimit(bp_frequencies, element1_spec, element2_spec, cross_spec, rfi_bands)
 print("Done")
 
-print(f"Reading GOES data...", end=" ")
+print(f"Reading GOES data...". end=" ")
 df = pd.read_csv(goes_path, parse_dates=["Universal Time"])
 
 goes_time = pd.to_datetime(df["Universal Time"]).to_numpy()

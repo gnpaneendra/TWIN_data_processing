@@ -261,7 +261,7 @@ rfi_bands = [(180e6, 181.5e6), (215e6, 225e6), (238.5e6, 271e6), (278e6, 283e6),
 element1_rfim_spec, element2_rfim_spec, cross_rfim_spec= rfimit(bp_frequencies, element1_spec, element2_spec, cross_spec, rfi_bands)
 print("Done")
 
-print(f"Reading GOES data...". end=" ")
+print(f"Reading GOES data...", end=" ")
 df = pd.read_csv(goes_path, parse_dates=["Universal Time"])
 
 goes_time = pd.to_datetime(df["Universal Time"]).to_numpy()

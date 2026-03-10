@@ -41,7 +41,7 @@ python3 -m pip install numpy pandas matplotlib datetime tqdm
 
 ## Downloading the data
 
-Download thw TWIN data
+### Download thw TWIN data
 
 Go to a web browser (Firefox) and enter 
 
@@ -65,13 +65,12 @@ Unzip the downloaded data using the following command
 unzip example_name.zip -d example_name
 ```
 
-Downlaod GOES data
+### Downlaod GOES data
 
-Go the given website
+Open a new tab in the web broswer and paste the below link<br>
 
-```terminal
-https://lasp.colorado.edu/space-weather-portal/goes-x-ray-flux?duration=3&endDate=2025-12-07
-```
+https://lasp.colorado.edu/space-weather-portal/goes-x-ray-flux?duration=3&endDate=2025-12-07<br>
+
 
 A webpage like this will be visible<br>
 ![image](images/goeswp/gwp1.png)

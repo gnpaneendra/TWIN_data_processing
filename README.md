@@ -12,6 +12,7 @@ Operating Frequency: 180 - 350 MHz<br>
 Follow the instructions for running the program
 
 Open the terminal<br>
+
 ctrl+alt+T
 
 ```terminal
@@ -43,15 +44,14 @@ python3 -m pip install numpy pandas matplotlib datetime tqdm
 
 ### Download thw TWIN data
 
-Go to a web browser (Firefox) and enter 
+Go to a web browser (Firefox) and paste the below line <br>
 
-```terminal
-172.16.101.87:5001
-```
-Webpage will appear as below and select the year, followed by month and date<br>
+172.16.101.87:5001<br>
+
+Webpage will appear as below and select the year, followed by month and date<br><br>
 ![image](images/wp/wp1.png)
 
-After selecting the date, a dialogue box appears and you have to select "Download raw files"<br>
+After selecting the date, a dialogue box appears and you have to select "Download raw files"<br><br>
 ![image](images/wp/wp2.png)
 
 Once the download is finished, remember the location of the downloaded file. For example, if the file is located in the Downloads folder, then your file location will be
@@ -72,10 +72,10 @@ Open a new tab in the web broswer and paste the below link<br>
 https://lasp.colorado.edu/space-weather-portal/goes-x-ray-flux?duration=3&endDate=2025-12-07<br>
 
 
-A webpage like this will be visible<br>
+A webpage like this will be visible<br><br>
 ![image](images/goeswp/gwp1.png)
 
-Chose the data and click the 3 bars on thw right top of the plot and a drop down menu appears and select "Download CSV"<br>
+Chose the data and click the 3 bars on thw right top of the plot and a drop down menu appears and select "Download CSV"<br><br>
 ![image](images/goeswp/gwp2.png)
 
 
@@ -113,7 +113,7 @@ Type python3 followed by program name, path to the TWIN data and GOES data
 python3 twin_goes_flux_comparision.py /home/winterschool/Downloads/example_name /home/winterschool/Downloads/goes_data.csv
 ```
 
-After the execution of the program, you have to type the start date & time then press enter and type end date & time and type enter just like below <br>
+After the execution of the program, you have to type the start date & time then press enter and type end date & time and type enter just like below <br><br>
 ![image](images/goeswp/gp1.png)
 
 Contact details: paneendra.res@gmail.com

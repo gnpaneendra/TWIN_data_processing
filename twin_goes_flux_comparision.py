@@ -212,15 +212,15 @@ files_sorted_by_time = sorted(files, key=extract_utc_time_from_filename)
 print("\nFiles are sorted according to time")
 
 date = extract_utc_time_from_filename(files_sorted_by_time[0]).strftime('%Y/%m/%d')
+date_n = extract_utc_time_from_filename(files_sorted_by_time[-1]).strftime('%Y/%m/%d')
 date_name = extract_utc_time_from_filename(files_sorted_by_time[0]).strftime('%Y_%m_%d')
 time_1 = extract_utc_time_from_filename(files_sorted_by_time[0]).strftime('%H:%M:%S')
 time_n = extract_utc_time_from_filename(files_sorted_by_time[-1]).strftime('%H:%M:%S')
 ist_time_1 = extract_ist_time_from_file(files_sorted_by_time[0]).strftime('%H:%M:%S')
 ist_time_n = extract_ist_time_from_file(files_sorted_by_time[-1]).strftime('%H:%M:%S')
 
-print(f"\nObservation date: {date}")
-print(f"Observation time(IST): {ist_time_1} - {ist_time_n}")
-print(f"Observation time(UTC): {time_1} - {time_n}\n")
+print(f"Observation strat date and time (IST) : {date} {ist_time_1} - {date_n} {ist_time_n}")
+print(f"Observation start date and time (UTC) : {date} {time_1} - {date_n} {time_n}\n")
 
 output_directory = os.path.expanduser(f'~/Downloads/TWIN_data_processing/spectrograph/{date_name}')
 os.makedirs(output_directory, exist_ok=True)

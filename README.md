@@ -11,9 +11,9 @@ Operating Frequency: 180 - 350 MHz<br>
 ## Setting up python
 Follow the instructions for running the program
 
-Open the terminal<br>
+Open the terminal by clikcing ctrl+alt+T <br>
 
-ctrl+alt+T
+In terminal type the below lines
 
 ```terminal
 sudo apt update

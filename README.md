@@ -42,7 +42,7 @@ python3 -m pip install numpy pandas matplotlib datetime tqdm
 
 ## Downloading the data
 
-### Download thw TWIN data
+### Download TWIN data
 
 Go to a web browser (Firefox) and paste the below line <br>
 
